@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 
 // Add this CSS at the beginning to reset browser default styles
 const globalStyles = `
@@ -54,7 +56,7 @@ export default function App() {
       formData.append("file", file);
 
       try {
-        await axios.post("http://127.0.0.1:8000/upload/", formData);
+        await axios.post("${BACKEND_URL}/upload/", formData);
         uploadCount++;
       } catch (error) {
         console.error("Upload Error:", error);
@@ -83,7 +85,7 @@ export default function App() {
     }
 
     try {
-      const queryResponse = await axios.post("http://127.0.0.1:8000/query/", {
+      const queryResponse = await axios.post("${BACKEND_URL}/query/", {
         report_name: activeFile, // Query selected report
         query: query.trim(),
       }, {
@@ -115,7 +117,7 @@ export default function App() {
     }
 
     try {
-      const compareResponse = await axios.post("http://127.0.0.1:8000/compare/", {
+      const compareResponse = await axios.post("${BACKEND_URL}/compare/", {
         report1: selectedFiles[0].name,
         report2: selectedFiles[1].name,
         query: query.trim(),
