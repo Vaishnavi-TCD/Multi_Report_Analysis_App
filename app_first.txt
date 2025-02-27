@@ -1,0 +1,95 @@
+import { useState } from "react";
+import axios from "axios";
+
+function App() {
+  const [file, setFile] = useState(null);
+  const [query, setQuery] = useState("");
+  const [response, setResponse] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Upload file
+  const uploadFile = async () => {
+    if (!file) {
+      alert("Please select a file to upload.");
+      return;
+    }
+    const formData = new FormData();
+    formData.append("file", file);
+
+    setIsLoading(true);
+    try {
+      await axios.post("http://127.0.0.1:8000/upload/", formData);
+      alert("File uploaded successfully!");
+    } catch (error) {
+      alert("Error uploading file");
+    }
+    setIsLoading(false);
+  };
+
+  // Query the report
+  const queryReport = async () => {
+    if (!query) {
+      alert("Please enter a query.");
+      return;
+    }
+    setIsLoading(true);
+    try {
+      const res = await axios.post("http://127.0.0.1:8000/query/", {
+        report_name: "sample_report.txt",
+        query: query,
+      });
+      setResponse(res.data.response);
+    } catch (error) {
+      alert("Error fetching query response");
+    }
+    setIsLoading(false);
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
+      <h1 className="text-3xl font-bold mb-6">AI-Powered Report Analysis</h1>
+
+      {/* File Upload */}
+      <div className="mb-4 flex flex-col items-center">
+        <input
+          type="file"
+          onChange={(e) => setFile(e.target.files[0])}
+          className="mb-2"
+        />
+        <button
+          onClick={uploadFile}
+          className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700"
+        >
+          {isLoading ? "Uploading..." : "Upload Report"}
+        </button>
+      </div>
+
+      {/* Query Section */}
+      <div className="mt-4 flex flex-col items-center">
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Ask a question about the report..."
+          className="w-80 p-2 border rounded-md mb-2"
+        />
+        <button
+          onClick={queryReport}
+          className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700"
+        >
+          {isLoading ? "Querying..." : "Get Insights"}
+        </button>
+      </div>
+
+      {/* Response Display */}
+      {response && (
+        <div className="mt-6 p-4 bg-white border rounded-lg shadow-md w-2/3">
+          <h2 className="text-xl font-semibold mb-2">AI Response:</h2>
+          <p className="text-gray-700">{response}</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default App;

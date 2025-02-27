@@ -1,0 +1,252 @@
+Microsoft Windows [Version 10.0.22631.4751]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Windows\System32>cd D:
+D:\
+
+C:\Windows\System32>cd D:/
+
+C:\Windows\System32>cd ..
+
+C:\Windows>cd ..
+
+C:\>cd D:\
+
+C:\>cd D:/
+
+C:\>curl.exe -X POST "http://127.0.0.1:8000/query/" -H "Content-Type: application/json" -d "{\"report_name\": \"sample_report.txt\", \"query\": \"What are the key insights?\"}"
+Internal Server Error
+C:\>
+C:\>curl.exe -X POST "http://127.0.0.1:8000/query/" -H "Content-Type: application/json" -d "{\"report_name\": \"sample_report.txt\", \"query\": \"What are the key insights?\"}"
+Internal Server Error
+C:\>curl.exe -X GET "http://127.0.0.1:8000/reports/"
+{"available_reports":["sample_report.txt"]}
+C:\>curl.exe -X POST "http://127.0.0.1:8000/upload/" -F "file=@sample_report.txt"
+curl: (26) Failed to open/read local data from file/application
+
+C:\>curl.exe -X POST "http://127.0.0.1:8000/upload/" -F "file=@D:/CC/sample_report.txt"
+{"message":"File uploaded successfully","filename":"sample_report.txt"}
+C:\>curl.exe -X GET "http://127.0.0.1:8000/reports/"
+{"available_reports":["sample_report.txt"]}
+C:\>curl.exe -X POST "http://127.0.0.1:8000/query/" -H "Content-Type: application/json" -d "{\"report_name\": \"sample_report.txt\", \"query\": \"What are the key insights?\"}"
+Internal Server Error
+C:\>curl.exe -X POST "http://127.0.0.1:8000/upload/" -F "file=@D:/CC/sample_report.txt"
+{"message":"File uploaded successfully","filename":"sample_report.txt"}
+C:\>curl.exe -X GET "http://127.0.0.1:8000/reports/"
+{"available_reports":["sample_report.txt"]}
+C:\>curl.exe -X POST "http://127.0.0.1:8000/query/" -H "Content-Type: application/json" -d "{\"report_name\": \"sample_report.txt\", \"query\": \"What are the key insights?\"}"
+Internal Server Error
+C:\>curl.exe -X POST "http://127.0.0.1:8000/query/" -H "Content-Type: application/json" -d "{\"report_name\": \"sample_report.txt\", \"query\": \"What are the key insights?\"}"
+{"detail":[{"type":"missing","loc":["query","report_name"],"msg":"Field required","input":null},{"type":"missing","loc":["query","query"],"msg":"Field required","input":null}]}
+C:\>curl.exe -X POST "http://127.0.0.1:8000/upload/" -F "file=@D:/CC/sample_report.txt"
+{"message":"File uploaded successfully","filename":"sample_report.txt"}
+C:\>curl.exe -X GET "http://127.0.0.1:8000/reports/"
+{"available_reports":["sample_report.txt"]}
+C:\>curl.exe -X POST "http://127.0.0.1:8000/query/" -H "Content-Type: application/json" -d "{\"report_name\": \"sample_report.txt\", \"query\": \"What are the key insights?\"}"
+{"detail":[{"type":"missing","loc":["query","report_name"],"msg":"Field required","input":null},{"type":"missing","loc":["query","query"],"msg":"Field required","input":null}]}
+C:\>curl.exe -X POST "http://127.0.0.1:8000/upload/" -F "file=@sample_report.txt"
+curl: (26) Failed to open/read local data from file/application
+
+C:\>curl.exe -X POST "http://127.0.0.1:8000/upload/" -F "file=@D:/CC/sample_report.txt"
+{"message":"File uploaded successfully","filename":"sample_report.txt"}
+C:\>curl.exe -X GET "http://127.0.0.1:8000/reports/"
+{"available_reports":["sample_report.txt"]}
+C:\>curl.exe -X POST "http://127.0.0.1:8000/query/" -H "Content-Type: application/json" -d "{\"report_name\": \"sample_report.txt\", \"query\": \"What are the key insights?\"}"
+Internal Server Error
+C:\>curl.exe -X POST "http://127.0.0.1:8000/query/" -H "Content-Type: application/json" -d "{\"report_name\":\"sample_report.txt\",\"query\":\"What are the key insights?\"}"
+Internal Server Error
+C:\>curl.exe -X POST "http://127.0.0.1:8000/upload/" -F "file=@D:/CC/sample_report.txt"
+{"message":"File uploaded successfully","filename":"sample_report.txt"}
+C:\>curl.exe -X GET "http://127.0.0.1:8000/reports/"
+{"available_reports":["sample_report.txt"]}
+C:\>curl.exe -X POST "http://127.0.0.1:8000/query/" -H "Content-Type: application/json" -d "{\"report_name\": \"sample_report.txt\", \"query\": \"What are the key insights?\"}"
+Internal Server Error
+C:\>curl.exe -X POST "http://127.0.0.1:8000/upload/" -F "file=@D:/CC/sample_report.txt"
+{"message":"File uploaded successfully","filename":"sample_report.txt"}
+C:\>curl.exe -X GET "http://127.0.0.1:8000/reports/"
+{"available_reports":["sample_report.txt"]}
+C:\>curl.exe -X POST "http://127.0.0.1:8000/query/" -H "Content-Type: application/json" -d "{\"report_name\": \"sample_report.txt\", \"query\": \"What are the key insights?\"}"
+Internal Server Error
+C:\>curl.exe -X POST "http://127.0.0.1:8000/upload/" -F "file=@D:/CC/sample_report.txt"
+{"message":"File uploaded successfully","filename":"sample_report.txt"}
+C:\>curl.exe -X GET "http://127.0.0.1:8000/reports/"
+{"available_reports":["sample_report.txt"]}
+C:\>curl.exe -X POST "http://127.0.0.1:8000/query/" -H "Content-Type: application/json" -d "{\"report_name\": \"sample_report.txt\", \"query\": \"What are the key insights?\"}"
+Internal Server Error
+C:\>curl.exe -X POST "http://127.0.0.1:8000/query/" -H "Content-Type: application/json" -d "{\"report_name\": \"sample_report.txt\", \"query\": \"What are the key insights?\"}"
+{"detail":"Report not found"}
+C:\>curl.exe -X POST "http://127.0.0.1:8000/upload/" -F "file=@D:/CC/sample_report.txt"
+{"message":"File uploaded successfully","filename":"sample_report.txt"}
+C:\>curl.exe -X GET "http://127.0.0.1:8000/reports/"
+{"available_reports":["sample_report.txt"]}
+C:\>curl.exe -X POST "http://127.0.0.1:8000/query/" -H "Content-Type: application/json" -d "{\"report_name\": \"sample_report.txt\", \"query\": \"What are the key insights?\"}"
+Internal Server Error
+C:\>curl.exe -X POST "http://127.0.0.1:8000/upload/" -F "file=@D:/CC/sample_report.txt"
+{"message":"File uploaded successfully","filename":"sample_report.txt"}
+C:\>curl.exe -X GET "http://127.0.0.1:8000/reports/"
+{"available_reports":["sample_report.txt"]}
+C:\>curl.exe -X POST "http://127.0.0.1:8000/query/" -H "Content-Type: application/json" -d "{\"report_name\": \"sample_report.txt\", \"query\": \"What are the key insights?\"}"
+{"report":"sample_report.txt","query":"What are the key insights?","response":"The best way to find out if you are a fan of a movie is to look at the movie's history."}
+C:\>
+
+------------------------------------------------------
+C:\>curl.exe -X POST "http://127.0.0.1:8000/upload/" -F "file=@D:/CC/sample_report.txt"
+{"message":"File uploaded successfully","filename":"sample_report.txt"}
+C:\>curl.exe -X POST "http://127.0.0.1:8000/query/" -H "Content-Type: application/json" -d "{\"report_name\": \"sample_report.txt\", \"query\": \"What is the trend in EV market?\"}"
+{"report":"sample_report.txt","query":"What is the trend in EV market?","response":"Market demand for electric vehicles has increased by 40% in 2024. 2"}
+
+
+PS D:\CC\backend> uvicorn main:app --reload --log-level debug
+INFO:     Will watch for changes in these directories: ['D:\\CC\\backend']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [6352] using StatReload
+2025-02-22 23:18:00.146381: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-02-22 23:18:02.007105: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING:tensorflow:From C:\Users\Vaishnavi\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+INFO:     Started server process [16340]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+DEBUG:python_multipart.multipart:Calling on_part_begin with no data
+DEBUG:python_multipart.multipart:Calling on_header_field with data[50:69]
+DEBUG:python_multipart.multipart:Calling on_header_value with data[71:123]
+DEBUG:python_multipart.multipart:Calling on_header_end with no data
+DEBUG:python_multipart.multipart:Calling on_header_field with data[125:137]
+DEBUG:python_multipart.multipart:Calling on_header_value with data[139:149]
+DEBUG:python_multipart.multipart:Calling on_header_end with no data
+DEBUG:python_multipart.multipart:Calling on_headers_finished with no data
+DEBUG:python_multipart.multipart:Calling on_part_data with data[153:393]
+DEBUG:python_multipart.multipart:Calling on_part_end with no data
+DEBUG:python_multipart.multipart:Calling on_end with no data
+Batches: 100%|███████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 21.14it/s]
+🔹 Storing 4 sentences in FAISS for sample_report.txt
+📝 Sentence 0: The key insights from this report are:
+1
+📝 Sentence 1: Market demand for electric vehicles has increased by 40% in 2024.
+2
+📝 Sentence 2: Consumers prefer battery life over price when purchasing EVs.
+3
+📝 Sentence 3: Government subsidies are expected to rise by 20% next year.
+
+DEBUG:services:✅ FAISS Index Updated with 4 sentences from sample_report.txt
+INFO:     127.0.0.1:51301 - "POST /upload/ HTTP/1.1" 200 OK
+Batches: 100%|███████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 45.45it/s]
+DEBUG:services:🔍 Query: What is the trend in EV market?
+DEBUG:services:📊 Retrieved indices: [ 1  5  9 13 17]
+DEBUG:services:✅ Retrieved sentence: Market demand for electric vehicles has increased by 40% in 2024.
+2
+INFO:     127.0.0.1:51302 - "POST /query/ HTTP/1.1" 200 OK
+
+-----------------------------------
+Steps to Run the Commands
+Open Command Prompt (cmd) or PowerShell
+
+Press Win + R, type cmd, and hit Enter.
+Or, open PowerShell (Win + X → Click Windows Terminal (Admin) if needed).
+Navigate to D:/CC/ Run the following command to switch to the correct directory:
+
+sh
+Copy
+Edit
+cd /d D:\CC\
+
+npm run dev
+
+
+------------------------------
+singl file handlingworking properly
+DEBUG:python_multipart.multipart:Calling on_part_end with no data
+DEBUG:python_multipart.multipart:Calling on_end with no data
+Batches: 100%|███████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.52it/s]
+🔹 Storing 4 sentences in FAISS for sample_report.txt
+📝 Sentence 0: The key insights from this report are:
+📝 Sentence 1: 1. Market demand for electric vehicles has increased by 40% in 2024.
+📝 Sentence 2: 2. Consumers prefer battery life over price when purchasing EVs
+📝 Sentence 3: 3. Government subsidies are expected to rise by 20% next year.
+DEBUG:services:✅ FAISS Index Updated with 4 sentences from sample_report.txt
+INFO:     127.0.0.1:59311 - "POST /upload/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59312 - "OPTIONS /query/ HTTP/1.1" 200 OK
+Batches: 100%|███████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 35.81it/s]
+🔎 Debugging FAISS retrieval for: sample_report.txt
+Query Vector Shape: (1, 384)
+📊 Retrieved FAISS Indices: [1 5 9 2 6]
+DEBUG:services:🔍 Query: What is the trend in EV market?
+DEBUG:services:📊 Retrieved indices: [1 5 9]
+DEBUG:services:✅ Retrieved sentence: 1. Market demand for electric vehicles has increased by 40% in 2024.
+INFO:     127.0.0.1:59312 - "POST /query/ HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [21408]
+INFO:     Stopping reloader process [7276]
+PS D:\CC\backend> uvicorn main:app --reload --log-level debug
+INFO:     Will watch for changes in these directories: ['D:\\CC\\backend']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [11808] using StatReload
+2025-02-23 15:06:54.697536: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-02-23 15:06:58.747978: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING:tensorflow:From C:\Users\Vaishnavi\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+INFO:     Started server process [8540]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+DEBUG:python_multipart.multipart:Calling on_part_begin with no data
+DEBUG:python_multipart.multipart:Calling on_header_field with data[42:61]
+DEBUG:python_multipart.multipart:Calling on_header_value with data[63:115]
+DEBUG:python_multipart.multipart:Calling on_header_end with no data
+DEBUG:python_multipart.multipart:Calling on_header_field with data[117:129]
+DEBUG:python_multipart.multipart:Calling on_header_value with data[131:141]
+DEBUG:python_multipart.multipart:Calling on_header_end with no data
+DEBUG:python_multipart.multipart:Calling on_headers_finished with no data
+DEBUG:python_multipart.multipart:Calling on_part_data with data[145:385]
+DEBUG:python_multipart.multipart:Calling on_part_end with no data
+DEBUG:python_multipart.multipart:Calling on_end with no data
+Batches: 100%|███████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.39it/s]
+🔹 Storing 4 sentences in FAISS for sample_report.txt
+📝 Sentence 0: The key insights from this report are:
+📝 Sentence 1: 1. Market demand for electric vehicles has increased by 40% in 2024.
+📝 Sentence 2: 2. Consumers prefer battery life over price when purchasing EVs
+📝 Sentence 3: 3. Government subsidies are expected to rise by 20% next year.
+DEBUG:services:✅ FAISS Index Updated with 4 sentences from sample_report.txt
+INFO:     127.0.0.1:59378 - "POST /upload/ HTTP/1.1" 200 OK
+Batches: 100%|███████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 41.29it/s]
+🔎 Debugging FAISS retrieval for: sample_report.txt
+Query Vector Shape: (1, 384)
+📊 Retrieved FAISS Indices: [ 3  7 11 15  1]
+DEBUG:services:🔍 Query: How are subsidies changing?
+DEBUG:services:📊 Retrieved indices: [ 3  7 11]
+DEBUG:services:✅ Retrieved sentence: 3. Government subsidies are expected to rise by 20% next year.
+INFO:     127.0.0.1:59382 - "POST /query/ HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [8540]
+
+------------------------
+multipart curl queries
+
+C:\>curl.exe -X POST "http://127.0.0.1:8000/upload/" -F "file=@D:/CC/sample_report.txt"
+{"message":"File uploaded successfully","filename":"sample_report.txt"}
+C:\>curl.exe -X POST "http://127.0.0.1:8000/upload/" -F "file=@D:/CC/sample_report_2.txt"
+{"message":"File uploaded successfully","filename":"sample_report_2.txt"}
+C:\>curl.exe -X POST "http://127.0.0.1:8000/compare/" -H "Content-Type: application/json" -d "{\"report1\": \"sample_report.txt\", \"report2\": \"sample_report_2.txt\", \"query\": \"What is the market trend?\"}"
+{"report1":"sample_report.txt","report2":"sample_report_2.txt","query":"What is the market trend?","response":"🔹 sample_report.txt: Market demand for electric vehicles has increased by 40% in 2024.. Government subsidies are expected to rise by 20% next year.\n\n🔹 sample_report_2.txt: Hybrid vehicles are gaining traction with a 30% market increase in 2024.. 3."}
+
+
+
+python -c "import sys; print(sys.executable)"
+python -m pip list | findstr pymupdf
+
+
+curl.exe -X POST "http://127.0.0.1:8000/compare/" -H "Content-Type: application/json" -d "{\"report1\": \"2024-conocophillips-proxy-statement.pdf"\", \"report2\": \"2023-conocophillips-aim-presentation.pdf\", \"query\": \"How does ConocoPhillips' executive compensation structure compare with the other report?\"}"
+
+curl.exe -X POST "http://127.0.0.1:8000/compare/" -H "Content-Type: application/json" -d "{\"report1\": \"Compressed-2020-Annual-Report.pdf"\", \"report2\": \"22mcFINAL-Annual-Report-2019-ONLINE-VERSION.pdf.pdf\", \"query\": \"What were the major law enforcement collaborations reported in both years?\"}"
+
+"C:\Users\Vaishnavi\Downloads\Compressed-2020-Annual-Report.pdf"
+
+"C:\Users\Vaishnavi\Downloads\2mcFINAL-Annual-Report-2019-ONLINE-VERSION.pdf"
+
+curl.exe -X POST "http://127.0.0.1:8000/upload/" -F "file=@C:/Users/Vaishnavi/Downloads/Compressed-2020-Annual-Report.pdf"
+
+curl.exe -X POST "http://127.0.0.1:8000/upload/" -F "file=@C:/Users/Vaishnavi/Downloads/2mcFINAL-Annual-Report-2019-ONLINE-VERSION.pdf"
+

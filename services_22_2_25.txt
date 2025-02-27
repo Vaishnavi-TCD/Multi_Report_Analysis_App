@@ -1,0 +1,42 @@
+def store_document(report_name, report_text):
+    """Store embeddings of the report in FAISS for retrieval."""
+    global index
+    sentences = report_text.split(". ")  
+    embeddings = embedding_model.encode(sentences)
+
+    # Debug logs
+    logger.debug(f"🔹 Storing {len(sentences)} sentences in FAISS for {report_name}")
+    for i, sentence in enumerate(sentences):
+        logger.debug(f"📝 Sentence {i}: {sentence}")
+
+    document_embeddings[report_name] = (sentences, embeddings)
+
+    # Reset FAISS index and add new embeddings
+    index = faiss.IndexFlatL2(embeddings.shape[1])
+    index.add(np.array(embeddings, dtype=np.float32))
+
+    logger.debug("✅ FAISS Indexing Complete")
+
+
+def retrieve_relevant_text(report_name, query):
+    """Retrieve relevant text from FAISS index."""
+    if report_name not in document_embeddings:
+        logger.warning("🚨 Report not found in FAISS.")
+        return "Report not found."
+
+    sentences, embeddings = document_embeddings[report_name]
+    query_embedding = embedding_model.encode([query])
+
+    # Find the closest match
+    _, indices = index.search(np.array(query_embedding, dtype=np.float32), 3)
+
+    retrieved_text = ". ".join([sentences[i] for i in indices[0]])
+
+    # Debug logs
+    logger.debug(f"🔍 Query: {query}")
+    logger.debug(f"📊 Retrieved indices: {indices[0]}")
+    for idx in indices[0]:
+        logger.debug(f"✅ Retrieved sentence: {sentences[idx]}")
+
+    return retrieved_text
+
